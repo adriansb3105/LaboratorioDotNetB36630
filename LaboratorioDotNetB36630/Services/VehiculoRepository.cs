@@ -17,10 +17,21 @@ namespace LaboratorioDotNetB36630.Services
             }
         }
 
-        internal void Crear(Vehiculo vehiculo)
+        public void Crear(Vehiculo vehiculo)
         {
             using (var db = new ApplicationDbContext())
             {
+                db.Vehiculos.Add(vehiculo);
+                db.SaveChanges();
+            }
+        }
+
+        public void Actualizar(String id, Vehiculo vehiculo)
+        {
+            using (var db = new ApplicationDbContext())
+            {
+                Vehiculo v = db.Vehiculos.Find(id);
+                db.Vehiculos.Remove(v);
                 db.Vehiculos.Add(vehiculo);
                 db.SaveChanges();
             }

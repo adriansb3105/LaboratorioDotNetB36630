@@ -39,8 +39,9 @@ namespace LaboratorioDotNetB36630.Controllers
         }
 
         // PUT: api/Vehiculo/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(String id, [FromBody]Vehiculo value)
         {
+            this._repo.Actualizar(id, value);
         }
 
         // DELETE: api/Vehiculo/5
